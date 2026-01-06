@@ -1,0 +1,31 @@
+# Credentials & Secrets
+key.txt
+.env
+.env.*
+*.key
+*.secret
+api_keys.txt
+
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Logs & Temp Files
+logs/
+*.log
