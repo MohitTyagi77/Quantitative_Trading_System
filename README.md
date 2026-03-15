@@ -82,6 +82,19 @@ jupyter notebook
 # Run all cells from top to bottom
 ```
 
+
+### Run the Real-Time Paper Trading Bot (new)
+
+A standalone Python script is now available: `angel_one_realtime_paper_bot.py`.
+
+```bash
+python angel_one_realtime_paper_bot.py
+```
+
+It uses the same Three White Soldiers / Three Black Crows logic, but runs in a live polling loop during market hours and writes logs to:
+- `paper_trades.csv`
+- `paper_equity.csv`
+
 ### Step 4: Check the Results
 
 The system will show:
