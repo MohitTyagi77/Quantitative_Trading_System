@@ -82,6 +82,40 @@ jupyter notebook
 # Run all cells from top to bottom
 ```
 
+
+### Run the Real-Time Paper Trading Bot (new)
+
+A standalone Python script is now available: `angel_one_realtime_paper_bot.py`.
+
+Set credentials via environment variables (recommended):
+
+```bash
+export ANGEL_API_KEY="your_api_key"
+export ANGEL_CLIENT_CODE="your_client_code"
+export ANGEL_PIN="your_pin_or_password"
+export ANGEL_TOTP_SECRET="your_totp_secret"
+python angel_one_realtime_paper_bot.py
+```
+
+(Backward compatible fallback: `key.txt` is still supported.)
+
+
+Rate-limit controls (recommended for AB1019):
+
+```bash
+export SYMBOLS_PER_CYCLE="8"
+export SYMBOL_REQUEST_GAP_SECONDS="1.2"
+export RATE_LIMIT_COOLDOWN_SECONDS="30"
+```
+
+The bot scans symbols in rotating batches instead of hitting all symbols every loop, which helps prevent SmartAPI historical-data throttling.
+
+This script now follows official SmartAPI SDK flow (`SmartConnect`, `generateSession`, `getfeedToken`, `getProfile`) and runs the same pattern strategy in a live polling loop with retry + session refresh handling.
+
+Logs:
+- `paper_trades.csv`
+- `paper_equity.csv`
+
 ### Step 4: Check the Results
 
 The system will show:
